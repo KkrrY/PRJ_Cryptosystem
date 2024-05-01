@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.fxml.*?>
+
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.beans.binding.NumberBinding?>
+<BorderPane fx:id="borderPane" id="Background"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cryptosystem.prj_cryptosystem.Controller">
+    <GridPane id="Background"
+              prefHeight="${controller.screenHeight}"
+              prefWidth="${controller.screenWidth}"/>
+    <stylesheets>
+        <URL value="@__PRJ_CryptoSystem_Stylesheet.css"/>
+    </stylesheets>
+
+    <top>
+        <MenuBar fx:id="menuBar">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="Open" fx:id="openMenuItem" onAction="#openFile"/>
+                        <MenuItem text="Save" fx:id="saveMenuItem" onAction="#saveFile"/>
+                        <MenuItem text="Save As" fx:id="saveAsMenuItem" onAction="#saveToOtherFile"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <left>
+        <VBox spacing="${controller.screenHeight * 0.03}" alignment="CENTER"> <!-- Setting to TOP_LEFT sets this higher -->
+            <padding>
+                <Insets left="50" right="50"/>
+            </padding>
+            <StackPane fx:id="infoButton" prefWidth="24" prefHeight="24"/>
+            <Button fx:id="generateKeyButton" text="Generate Keys" visible="false" />
+            <Button text="Encrypt" fx:id="encryptButton" />
+            <Button text="Decrypt" fx:id="decryptButton" />
+            <Button text="Brute Force" fx:id="bruteForceButton" />
+        </VBox>
+    </left>
+
+    <right>
+        <VBox>
+            <padding>
+                <Insets right="50"/>
+            </padding>
+        </VBox>
+        <Label fx:id="aboutLabel" text="About" translateY="${controller.screenHeight * 0.88}"/>
+    </right>
+
+    <center>
+        <VBox spacing="10">
+            <HBox spacing="1" alignment="CENTER_LEFT">
+                <Label fx:id="statusMessage"/>
+                <Button text="Load outer changes" fx:id="loadChangesButton" onAction="#loadChanges"/>
+            </HBox>
+            <HBox fx:id="regimes" visible="false" spacing="15"/>
+            <HBox maxHeight="${controller.screenHeight * 0.01}" spacing="15">
+                <TextArea prefWidth="${controller.screenWidth * 0.2}"
+                          fx:id="keyLengthArea" promptText="Key Length" visible="false" />
+                <TextArea prefWidth="${controller.screenWidth * 0.2}"
+                          fx:id="entryPoint" visible="false" promptText="First encryption number"/>
+                <Button fx:id="pickerButton" text="Text Color" />
+
+                <ChoiceBox fx:id="fontSizeChoiceBox"/>
+            </HBox>
+            <VBox spacing="10"> <!-- items in borderPane get stretched automatically by width -->
+                <TextArea prefHeight="${controller.screenHeight * 0.05}"
+                          fx:id="cypherKeyArea" promptText="Enter your public key here" />
+                <TextArea prefHeight="${controller.screenHeight * 0.05}"
+                          fx:id="privateKeyArea" promptText="Private key"  visible="false" />
+                <TextArea prefHeight="${controller.screenHeight * 0.5}"
+                          fx:id="textArea" wrapText="true" promptText="Enter the text you want to cipher"/>
+            </VBox>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox translateX="${controller.screenWidth * 0.95}" translateY="${controller.screenHeight * -0.955}" >
+            <Button id="CloseButton" fx:id="minimizeButton" text="—" />
+            <Button id="CloseButton" fx:id="closeButton" text="X" />
+        </HBox>
+    </bottom>
+
+    <AnchorPane translateX="${controller.screenWidth * 0.1}">
+        <TitledPane fx:id="menuCypher" expanded="false" text="Cypher type" maxWidth="${controller.screenWidth * 0.2}">
+            <VBox spacing="10">  </VBox> <!-- filled in code -->
+        </TitledPane>
+    </AnchorPane>
+
+    <AnchorPane translateY="${controller.screenHeight * 0.95}">
+        <ProgressBar fx:id="progressBar" minWidth="${controller.screenWidth}"/>
+    </AnchorPane>
+
+
+</BorderPane>

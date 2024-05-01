@@ -1,0 +1,199 @@
+*{
+    -fx-font-family: "Segoe UI Black";
+    -fx-text-fill: white;
+}
+input,button,textarea{font-family: inherit;} /*make our form tags inherit family font*/
+
+/*zeroing some special parameters*/
+button{cursor: pointer;}
+a, a:visited{text-decoration: none; color: black;}
+a:hover{text-decoration: none;}
+img{vertical-align: top;}
+
+/*-------------------------------------------------------------------*/
+
+#Background
+{
+    -fx-background-color: #424347;
+}
+#CloseButton {
+    -fx-background-color: none;
+    -fx-border-color: none;
+    -fx-effect: none;
+}
+#CloseButton:hover{
+    -fx-text-fill: #f04747;
+}
+.button {
+
+    /*-fx-pref-width: 300;*/
+    -fx-font-family: "Segoe UI Black";
+    -fx-border-style: none;
+    -fx-blend-mode: hard-light;
+    -fx-border-color: #d1066c;
+    -fx-background-color: #666666;
+    -fx-text-fill:#fff;
+    -fx-border-radius:0%;
+    -fx-text-transform: uppercase;
+    -fx-font-size: 130%;
+}
+.button:hover {
+    -fx-background-color: #70757a;
+}
+/*Menu-item*/
+.menu-bar{
+    -fx-background-color: #31333b;
+}
+.menu-item { /*dropdown list*/
+    -fx-background-color: #31333b;
+}
+.menu-item:hover, .menu-item:focused {
+    -fx-background-color: derive(rgba(37, 40, 45, 1), -20%);
+}
+.context-menu {
+    -fx-background-color: rgba(40, 43, 48, 1);
+    -fx-background-insets: 0;
+    -fx-padding: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: rgba(245, 245, 245, 0.1);
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 6, 0.0 , 0 , 0);
+}
+/*Label*/
+.menu-item >.label {
+    -fx-background-color:transparent;
+    -fx-padding: 0.2em 0.1em 0.2em 0.1em;
+    -fx-text-fill: rgba(255, 255, 255, 0.6);
+    -fx-effect: null;
+}
+.menu-item:focused > .label {
+    -fx-text-fill: #fff;
+}
+/*Text-area*/
+.text-area {
+    -fx-text-fill: #d1066c;
+    -fx-font-family: "Arial";
+    -fx-background-color: #666666;
+}
+.text-area .content {
+    -fx-background-color: #31333b;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+/*Progress-bar*/
+.progress-bar {
+    /*-fx-accent: rgba(500, 38, 130, 0.85);*/
+    -fx-accent: #bec4cf ;
+    -fx-indeterminate-bar-length: 300px;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: true;
+    -fx-indeterminate-bar-animation-time: 4;
+}
+.progress-bar:indeterminate > .bar {
+    -fx-background-color: linear-gradient(to left, transparent, -fx-accent);
+}
+
+.progress-bar .bar {
+    -fx-padding: 1px; /*whole progress bar height*/
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.progress-bar > .track {
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-text-box-border: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+
+}
+/*Scrollbar*/
+.scroll-bar {
+    -fx-background-color: #31333b;
+    -fx-border-color: none;
+}
+.scroll-bar:horizontal {
+    -fx-background-color: #31333b;
+}
+.scroll-bar:vertical {
+    -fx-background-color: #31333b;
+}
+/* The main scrollbar **track** CSS class on event of "hover" and "pressed" */
+.scroll-bar:horizontal:hover .track ,
+.scroll-bar:horizontal:pressed .track ,
+.scroll-bar:vertical:hover .track,
+.scroll-bar:vertical:pressed .track{
+    -fx-background-color: derive(#434343,20%);
+
+    -fx-opacity: 0.2;
+    -fx-background-radius: 0em;
+
+}
+/* The main scrollbar **thumb** CSS class on event of "hover" and "pressed" */
+.scroll-bar .thumb {
+    -fx-background-color:#424347;
+}
+
+.scroll-bar .thumb:hover,
+.scroll-bar .thumb:pressed{
+    -fx-background-color: derive(black,50%);
+}
+
+.increment-button:hover , .decrement-button:hover {
+    -fx-background-color:derive(black,100%);
+    -fx-border-color:derive(black,80%);
+    /*-fx-padding:10px;*/ /*makes wider*/
+}
+/*Titled-Pane styling (Cypher change button)*/
+.titled-pane > .title  {
+    -fx-background-color: #31333b;
+}
+/*.titled-pane > .title > .text {*/
+/*    -fx-text-fill: #c4c4c4 !important;*/
+/*}*/
+.title {
+    -fx-text-fill: black !important;
+}
+.titled-pane > .content {
+    -fx-background-color: #3c4043;
+    -fx-border-color: none;
+    -fx-padding: 10px;
+}
+
+/*Choice-Box*/
+
+.choice-box {
+    -fx-background-color: #31333b;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-padding: 1px;
+    -fx-font-size: 12px;
+}
+
+.choice-box > .label {
+    -fx-text-fill: whitesmoke;
+}
+
+/*Color-Picker*/
+
+.color-picker {
+    -fx-background-color: #31333b; /* set background color */
+    -fx-border-color: black; /* set border color */
+    -fx-border-radius: 1; /* set border radius */
+
+}
+.color-picker .color-rect {
+    -fx-background-color: black;
+}
+.color-palette {
+    -fx-background-color: #31333b;
+}
+
+
+.color-picker .popup .color-palette-popup {
+    -fx-background-color: black;
+}
+
+/*Alert*/
+
